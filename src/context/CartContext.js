@@ -30,7 +30,11 @@ function cartReducer(state, action) {
       };
     }
     case 'PLACE_ORDER':
-      return { ...state, items: [], lastOrder: action.order };
+      return {
+        ...state,
+        items: [],
+        orders: [...state.orders, action.order],
+      };
     case 'CLEAR_CART':
       return { ...state, items: [] };
     default:
@@ -39,7 +43,7 @@ function cartReducer(state, action) {
 }
 
 export function CartProvider({ children }) {
-  const [state, dispatch] = useReducer(cartReducer, { items: [], lastOrder: null });
+  const [state, dispatch] = useReducer(cartReducer, { items: [], orders: [] });
 
   const addItem = (item) => dispatch({ type: 'ADD_ITEM', item });
   const removeItem = (id) => dispatch({ type: 'REMOVE_ITEM', id });
@@ -71,11 +75,15 @@ export function CartProvider({ children }) {
     return order;
   };
 
+  // Most recent order — kept for backward compat with OrderConfirmation / OrderTracking
+  const lastOrder = state.orders.length > 0 ? state.orders[state.orders.length - 1] : null;
+
   return (
     <CartContext.Provider
       value={{
         items: state.items,
-        lastOrder: state.lastOrder,
+        orders: state.orders,
+        lastOrder,
         addItem,
         removeItem,
         updateQty,

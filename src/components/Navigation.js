@@ -36,6 +36,7 @@ function Navigation() {
             { to: '/reservation', label: 'Reserve' },
             { to: '/contact', label: 'Contact' },
             { to: '/faq', label: 'FAQ' },
+            { to: '/my-orders', label: 'My Orders' },
           ].map((item) => (
             <li key={item.to} className="nav-item">
               <NavLink

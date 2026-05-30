@@ -15,6 +15,7 @@ import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 import OrderConfirmation from './pages/OrderConfirmation';
 import OrderTracking from './pages/OrderTracking';
+import MyOrders from './pages/MyOrders';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/order-confirmation" element={<OrderConfirmation />} />
               <Route path="/order-tracking" element={<OrderTracking />} />
+              <Route path="/my-orders" element={<MyOrders />} />
             </Routes>
           </main>
           <Footer />

@@ -36,7 +36,8 @@ function Checkout() {
 
   useEffect(() => {
     if (items.length === 0 && !orderPlacedRef.current) {
-      navigate('/menu');
+      const id = setTimeout(() => navigate('/menu'), 0);
+      return () => clearTimeout(id);
     }
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
