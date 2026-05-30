@@ -1,0 +1,314 @@
+.OrderTracking {
+  padding: 3rem 0 5rem;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ot-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.ot-header h1 {
+  color: var(--primary);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  margin: 0 0 0.5rem;
+}
+
+.ot-order-num {
+  color: var(--text-muted);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* ETA banner */
+.ot-eta-banner {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  background: linear-gradient(135deg, rgba(46, 90, 51, 0.07), rgba(255, 214, 136, 0.15));
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  padding: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.ot-eta-icon {
+  font-size: 2.2rem;
+  flex-shrink: 0;
+}
+
+.ot-eta-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0 0 0.2rem;
+}
+
+.ot-eta-value {
+  font-weight: 700;
+  color: #27ae60;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.ot-eta-address {
+  margin-left: auto;
+  text-align: right;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.ot-eta-address p {
+  margin: 0;
+}
+
+/* Tracker card */
+.ot-tracker {
+  background: white;
+  border-radius: 28px;
+  padding: 2.5rem 2rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+/* Horizontal progress bar */
+.ot-progress-bar-track {
+  position: relative;
+  height: 6px;
+  background: var(--border);
+  border-radius: 999px;
+  margin-bottom: 2.5rem;
+  overflow: hidden;
+}
+
+.ot-progress-bar-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), #4caf50);
+  border-radius: 999px;
+  transition: width 0.8s ease;
+}
+
+/* Steps list */
+.ot-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.ot-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+/* Step bubble */
+.ot-step-bubble {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.ot-step.pending .ot-step-bubble {
+  background: var(--surface-soft);
+  border: 2px solid var(--border);
+}
+
+.ot-step.done .ot-step-bubble {
+  background: var(--primary);
+  border: 2px solid var(--primary);
+  color: white;
+}
+
+.ot-step.active .ot-step-bubble {
+  background: var(--primary);
+  border: 2px solid var(--primary);
+  color: white;
+}
+
+.ot-check-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.ot-step-icon {
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+.ot-step.done .ot-step-icon,
+.ot-step.active .ot-step-icon {
+  filter: none;
+}
+
+.ot-step.pending .ot-step-icon {
+  opacity: 0.4;
+}
+
+/* Pulse animation for active step */
+.ot-pulse-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2.5px solid var(--primary);
+  animation: ot-pulse 1.8s ease-out infinite;
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes ot-pulse {
+  0% { transform: scale(0.85); opacity: 0.7; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* Step text */
+.ot-step-info {
+  padding-top: 0.6rem;
+}
+
+.ot-step-label {
+  font-weight: 700;
+  margin: 0 0 0.2rem;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.ot-step.pending .ot-step-label {
+  color: var(--text-muted);
+}
+
+.ot-step.done .ot-step-label,
+.ot-step.active .ot-step-label {
+  color: var(--primary);
+}
+
+.ot-step-detail {
+  margin: 0 0 0.25rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.ot-step-time {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.ot-step.active .ot-step-time {
+  color: #27ae60;
+}
+
+/* Order summary */
+.ot-summary {
+  background: white;
+  border-radius: 24px;
+  padding: 1.75rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 2rem;
+}
+
+.ot-summary h2 {
+  color: var(--primary);
+  font-size: 1.1rem;
+  margin: 0 0 1.25rem;
+}
+
+.ot-items {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.ot-item {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.92rem;
+}
+
+.ot-item-qty {
+  color: var(--accent);
+  font-weight: 700;
+  min-width: 2rem;
+  flex-shrink: 0;
+}
+
+.ot-item-name {
+  flex: 1;
+  color: var(--text);
+}
+
+.ot-item-price {
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.ot-total {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1.5px solid var(--border);
+  padding-top: 0.85rem;
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 1rem;
+}
+
+/* Actions */
+.ot-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+  .ot-eta-banner {
+    flex-wrap: wrap;
+  }
+
+  .ot-eta-address {
+    margin-left: 0;
+    text-align: left;
+    flex: 1 0 100%;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .ot-tracker {
+    padding: 2rem 1.25rem;
+  }
+
+  .ot-step-bubble {
+    width: 44px;
+    height: 44px;
+  }
+
+  .ot-actions {
+    flex-direction: column;
+  }
+
+  .ot-actions .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
