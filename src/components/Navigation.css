@@ -27,7 +27,7 @@
 }
 
 .logo-image {
-  width: 72px;
+  width: 96px;
   height: auto;
 }
 
@@ -203,6 +203,6 @@
 
 @media (max-width: 480px) {
   .logo-image {
-    width: 60px;
+    width: 80px;
   }
 }
